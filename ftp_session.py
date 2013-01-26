@@ -5,7 +5,8 @@ def recv_banner(sock):
 	sock.recv(1024)
 
 sess = sessions.session("ftp_test.session")
-target = sessions.target("7.7.7.101",21)
+target = sessions.target("7.7.7.102",21)
+target.netmon = pedrpc.client("7.7.7.101",26001)
 
 sess.add_target(target)
 sess.pre_send(recv_banner)
